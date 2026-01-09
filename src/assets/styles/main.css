@@ -1,0 +1,454 @@
+/* ===== CSS Variables ===== */
+:root {
+  /* Primary Colors */
+  --color-primary: #6BB9A0;
+  --color-primary-light: #8ECFBA;
+  --color-primary-dark: #4A9D84;
+  
+  /* Break Time Colors (Purple) */
+  --color-break: #9B8AC4;
+  --color-break-light: #B8AAD9;
+  --color-break-dark: #7D6BA8;
+  
+  /* Background Colors */
+  --color-bg: #E8F5F2;
+  --color-bg-light: #F5FAF9;
+  --color-bg-sidebar: #5A9A8A;
+  
+  /* Accent Colors */
+  --color-accent: #E8A87C;
+  --color-accent-active: #E88A4C;
+  
+  /* Text Colors */
+  --color-text: #4A6B62;
+  --color-text-light: #7A9B92;
+  --color-text-muted: #A8C4BC;
+  
+  /* UI Colors */
+  --color-white: #FFFFFF;
+  --color-border: #D4E8E3;
+  --color-shadow: rgba(74, 157, 132, 0.15);
+  
+  /* Timing */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.25s ease;
+  --transition-slow: 0.4s ease;
+  
+  /* Border Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+  
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+}
+
+/* ===== Reset & Base ===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Outfit', 'Noto Sans TC', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+#app {
+  min-height: 100vh;
+}
+
+/* ===== Typography ===== */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+/* ===== Layout ===== */
+.app-container {
+  display: flex;
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--color-bg) 0%, var(--color-bg-light) 100%);
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  padding: var(--spacing-xl);
+  gap: var(--spacing-xl);
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.left-panel {
+  flex: 0 0 420px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.right-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xl);
+}
+
+/* ===== Panel Styles ===== */
+.panel {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 4px 20px var(--color-shadow);
+  overflow: hidden;
+}
+
+.panel-header {
+  background: var(--color-primary-light);
+  padding: var(--spacing-md) var(--spacing-lg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.panel-header h2 {
+  font-size: 1.25rem;
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.panel-body {
+  padding: var(--spacing-md);
+}
+
+/* ===== Button Styles ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border: none;
+  border-radius: var(--radius-full);
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: var(--color-white);
+}
+
+.btn-primary:hover {
+  background: var(--color-primary-dark);
+}
+
+.btn-secondary {
+  background: var(--color-border);
+  color: var(--color-text);
+}
+
+.btn-secondary:hover {
+  background: var(--color-text-muted);
+}
+
+.btn-icon {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--color-text-light);
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.btn-icon:hover {
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+/* ===== Form Styles ===== */
+.input {
+  width: 100%;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--color-text);
+  transition: border-color var(--transition-fast);
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+.input::placeholder {
+  color: var(--color-text-muted);
+}
+
+/* ===== Modal Styles ===== */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn var(--transition-fast);
+}
+
+.modal-content {
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+  min-width: 380px;
+  max-width: 90vw;
+  animation: slideUp var(--transition-normal);
+}
+
+.modal-header {
+  background: var(--color-primary-light);
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.modal-header h3 {
+  font-size: 1.25rem;
+  color: var(--color-text);
+}
+
+.modal-body {
+  padding: var(--spacing-lg);
+}
+
+.modal-footer {
+  padding: var(--spacing-md) var(--spacing-lg);
+  display: flex;
+  gap: var(--spacing-md);
+  justify-content: flex-end;
+}
+
+/* ===== Animations ===== */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+/* ===== Scrollbar ===== */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-text-muted);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-light);
+}
+
+/* ===== Utility Classes ===== */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ===== Responsive ===== */
+
+/* 大平板橫向 (iPad Pro 12.9" 等) */
+@media (min-width: 1024px) and (max-width: 1366px) {
+  .main-content {
+    padding: var(--spacing-lg);
+    gap: var(--spacing-lg);
+  }
+  
+  .left-panel {
+    flex: 0 0 380px;
+  }
+}
+
+/* 平板橫向 (iPad 10.2" - 11" 等) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .main-content {
+    padding: var(--spacing-md);
+    gap: var(--spacing-md);
+  }
+  
+  .left-panel {
+    flex: 0 0 340px;
+  }
+  
+  .timer-circle {
+    width: 320px;
+    height: 320px;
+  }
+  
+  .time-display {
+    font-size: 4rem;
+  }
+}
+
+/* 平板直向 & 大手機 */
+@media (max-width: 767px) {
+  .main-content {
+    flex-direction: column;
+    padding: var(--spacing-md);
+    gap: var(--spacing-md);
+  }
+  
+  .left-panel {
+    flex: none;
+    width: 100%;
+    order: 2;
+  }
+  
+  .right-panel {
+    order: 1;
+  }
+  
+  .timer-circle {
+    width: 280px;
+    height: 280px;
+  }
+  
+  .time-display {
+    font-size: 3.5rem;
+  }
+  
+  .pomodoro-indicators {
+    position: static;
+    flex-direction: row;
+    transform: none;
+    margin-top: var(--spacing-md);
+  }
+}
+
+/* 小螢幕手機 */
+@media (max-width: 480px) {
+  .side-nav {
+    width: 60px;
+    padding: var(--spacing-sm) 0;
+  }
+  
+  .nav-button {
+    width: 44px;
+    height: 44px;
+  }
+  
+  .timer-circle {
+    width: 240px;
+    height: 240px;
+  }
+  
+  .time-display {
+    font-size: 3rem;
+  }
+  
+  .timer-controls {
+    padding: var(--spacing-sm) var(--spacing-lg);
+  }
+  
+  .control-btn {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .play-btn {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+/* 橫向模式優化 */
+@media (max-height: 500px) and (orientation: landscape) {
+  .main-content {
+    padding: var(--spacing-sm);
+  }
+  
+  .timer-circle {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .time-display {
+    font-size: 2.5rem;
+  }
+  
+  .timer-controls {
+    padding: var(--spacing-xs) var(--spacing-md);
+  }
+}
+
+/* 觸控裝置優化 */
+@media (hover: none) and (pointer: coarse) {
+  .btn, .action-btn, .control-btn, .nav-button {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  .task-item {
+    padding: var(--spacing-md);
+  }
+}
