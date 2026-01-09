@@ -2,6 +2,15 @@
 
 一個現代化的番茄鐘 PWA 網頁應用，使用 Vue 3 + Vite 建構。
 
+[![Demo](https://img.shields.io/badge/Demo-Live%20Preview-6BB9A0?style=for-the-badge&logo=vercel)](https://pomodoro-taupe-six.vercel.app/)
+[![Vue](https://img.shields.io/badge/Vue-3.x-4FC08D?style=flat-square&logo=vue.js)](https://vuejs.org/)
+[![Vite](https://img.shields.io/badge/Vite-5.x-646CFF?style=flat-square&logo=vite)](https://vitejs.dev/)
+[![PWA](https://img.shields.io/badge/PWA-Supported-5A0FC8?style=flat-square&logo=pwa)](https://web.dev/progressive-web-apps/)
+
+## 🔗 線上體驗
+
+👉 **[https://pomodoro-taupe-six.vercel.app/](https://pomodoro-taupe-six.vercel.app/)**
+
 ## ✨ 功能特色
 
 ### 計時器
